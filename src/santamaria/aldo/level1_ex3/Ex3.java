@@ -1,4 +1,4 @@
-package santamaria.aldo.nivell1_ex3;
+package santamaria.aldo.level1_ex3;
 
 import java.io.*;
 import java.util.HashMap;
@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Ex3 {
+
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final String path = "resources/countries.txt";
 
     public static Map<String, String> fileToHashmap(String path) {
 
@@ -24,28 +27,25 @@ public class Ex3 {
             }
         } catch (IOException e) {
             e.printStackTrace();
-    }
+        }
         return countries;
     }
 
-    
+
     public static void main(String[] args) {
 
-        final Scanner scanner = new Scanner(System.in);
-        final String path = "resources/countries.txt";
+
         Map<String, String> mapFromFile = fileToHashmap(path);
-      //  printMap(mapFromFile);
         try {
             String name;
             do {
                 System.out.println("Enter your name: ");
-                name = scanner.nextLine().trim().toLowerCase(); // Elimina espacios en blanco al inicio y al final
-                if(name.isEmpty()){
+                name = scanner.nextLine().trim().toLowerCase();
+                if (name.isEmpty()) {
                     System.out.println("Name cannot be empty");
                 }
 
-            } while (name.isEmpty()); // Repite hasta que el usuario ingrese algo
-
+            } while (name.isEmpty());
 
 
             int score = 0;
@@ -72,8 +72,9 @@ public class Ex3 {
     private static void saveScore(String name, int score) {
 
         try {
-            Map <String, Integer> scores = new HashMap<>();
+            Map<String, Integer> scores = new HashMap<>();
             scores.put(name, score);
+
             FileWriter fileWriter = new FileWriter("resources/classificacio.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(name + " " + score);
@@ -84,27 +85,14 @@ public class Ex3 {
         }
     }
 
-    private static String randomCountry(Map<String, String> mapFromFile) {
-        return mapFromFile.keySet().toArray()[(int) (Math.random() * mapFromFile.size())].toString();
-    }
-
     private static String randomCountrybyIterator(Map<String, String> mapFromFile) {
         int randomIndex = (int) (Math.random() * mapFromFile.size()); // Índice aleatorio
-        Iterator<String> iterator = mapFromFile.keySet().iterator(); // Iterador sobre las claves
 
+        Iterator<String> iterator = mapFromFile.keySet().iterator(); // Iterador sobre las claves
         String randomCountry = null;
         for (int i = 0; i <= randomIndex; i++) {
-            randomCountry = iterator.next(); // Avanza hasta la clave aleatoria
+            randomCountry = iterator.next();
         }
-
         return randomCountry;
     }
-
-    private static void printMap(Map<String, String> mapFromFile) {
-        mapFromFile.forEach((country, capital) -> {
-            System.out.println("Country: " + country + " Capital: " + capital);
-        });
-    }
-
-
 }

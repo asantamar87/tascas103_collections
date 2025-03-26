@@ -1,4 +1,4 @@
-package santamaria.aldo.nivell1_ex1;
+package santamaria.aldo.level1_ex1;
 
 
 import java.util.Objects;
@@ -15,16 +15,14 @@ public class Month {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Month month = (Month) o;
-        return Objects.equals(name, month.name);
+
+        return name.equals(month.name);
     }
 
     @Override
@@ -32,8 +30,7 @@ public class Month {
         return Objects.hash(name);
     }
 
+
     @Override
-    public String toString() {
-        return super.toString();
-    }
+    public String toString() {return name ;}
 }

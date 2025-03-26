@@ -1,8 +1,7 @@
-package santamaria.aldo.nivell2_ex2;
+package santamaria.aldo.level2_ex2;
 
-import santamaria.aldo.nivell2_ex1.Restaurant;
+import santamaria.aldo.level2_ex1.Restaurant;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 

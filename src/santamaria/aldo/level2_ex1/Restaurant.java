@@ -1,4 +1,4 @@
-package santamaria.aldo.nivell2_ex1;
+package santamaria.aldo.level2_ex1;
 
 import java.util.Objects;
 
