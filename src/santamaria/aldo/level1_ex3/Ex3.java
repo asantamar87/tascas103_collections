@@ -1,6 +1,7 @@
 package santamaria.aldo.level1_ex3;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,17 +11,18 @@ public class Ex3 {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final String path = "resources/countries.txt";
+   private static final String filePath = "resources" + File.separator + "classificacio.txt";
 
-    public static Map<String, String> fileToHashmap(String path) {
+    public static Map<String, String> fileToHashmap(String filePath) {
+
 
         Map<String, String> countries = new HashMap<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split(" ");
                 String name = words[0].trim();
                 String capital = words[1].trim();
-                countries.put(name, capital);
 
                 if (!name.isEmpty() && !capital.isEmpty())
                     countries.put(name, capital);
@@ -75,7 +77,9 @@ public class Ex3 {
             Map<String, Integer> scores = new HashMap<>();
             scores.put(name, score);
 
-            FileWriter fileWriter = new FileWriter("resources/classificacio.txt", true);
+            String filePath = "resources" + File.separator + "classificacio.txt";
+
+            FileWriter fileWriter = new FileWriter(filePath, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(name + " " + score);
             bufferedWriter.newLine();

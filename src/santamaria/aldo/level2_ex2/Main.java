@@ -1,6 +1,5 @@
 package santamaria.aldo.level2_ex2;
 
-import santamaria.aldo.level2_ex1.Restaurant;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -8,9 +7,6 @@ import java.util.TreeSet;
 public class Main {
 
     public static void main(String[] args) {
-
-        //Utilitzant la classe del programa anterior,
-        // crea la implementació necessària perquè els objectes de la classe Restaurant estiguin ordenats per nom i per puntuació en ordre descendent.
 
         Set<Restaurant> restaurants = new TreeSet<>();
 

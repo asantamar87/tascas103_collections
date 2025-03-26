@@ -1,6 +1,5 @@
 package santamaria.aldo.level1_ex1;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
